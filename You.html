@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title> Fitful</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/Menu.css" rel="stylesheet" />
+    <link href="../css/StyleSheet1.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <style>
+        /* Style the body */
+        body {
+            font-family: 'Helvetica';
+            background: #3a274d;
+            color: lightgrey;
+            padding-left: 150px;
+        }
+        /* Top Text */
+        .top {
+            padding-top: 100px;
+            padding-left: 150px;
+            text-align: left;
+            background: #3a264d;
+            color: white;
+            font-size: 40px;
+        }
+        /* Header/Logo Title */
+        .header {
+            padding-left: 60px;
+            text-align: left;
+            background: #3a264d;
+            color: white;
+            font-size: 30px;
+            float: left;
+        }
+
+        .head {
+            padding-top: 50px;
+            text-align: left;
+            background: #3a264d;
+            color: white;
+            font-size: 30px;
+            float: right;
+        }
+
+        .cat {
+            padding-left: 120px;
+            padding-top: 50px;
+            color: blueviolet;
+        }
+        /* Page Content */
+        .content {
+            padding: 20px;
+        }
+        /* Reference styling */
+        a {
+            text-decoration: none;
+        }
+
+        .a1 {
+            text-decoration: none;
+            color: white;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .decoration-one {
+            background-color: rgb(249, 154, 154);
+            margin: 0;
+            border: 0;
+            border-radius: 12px;
+            padding: 9px;
+            font-weight: bold;
+        }
+
+            .decoration-one:hover {
+                background-color: yellow;
+            }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body style="background:#3a274d">
+    <div class="header">
+        <table class="menu">
+            <tr>
+                <td>
+                    <h1>
+                        <a1 href="Homepage.html">
+                            Fitful
+                        </a1>
+                    </h1>
+                </td>
+                <td>
+                    <a href="You.html">
+                        About You
+                    </a>
+                </td>
+                <td>
+                    <a href="Contact.html">
+                        Contact
+                    </a>
+                </td>
+                <td>
+                    <a href="Information.html">
+                        Our Research
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />    <br />    <br />
+    <div>
+        <form name="generalInfo">
+            <h1 class="cat" style="font-size:xxx-large">  Let's get to know you!</h1>
+            <br />
+            <input type="text" name="age" placeholder="Enter your age!" size="20" /><br /><br />
+            <p>Please select your age:</p>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="age1">Male</label><br>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="age2">Female</label><br>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="age3">Other/Prefer not to specify</label><br><br>
+            <input type="submit" value="Submit">
+
+        </form>
+        <form name="techBMI">
+            <h2>Let's check how healthy you are with our BMI calculator</h2>
+            <br />
+            <input type="text" name="weight" placeholder="Enter Weight (kg)" size="20"><br /><br />
+            <input type="text" name="height" placeholder="Enter Height (cm)" size="20"><br /><br />
+            <input class="decoration-one px-3 py-2" type="button" value="Calculate BMI" onClick="calculateBmi()"><br /><br />
+            <input type="text" name="bmi" placeholder="Your BMI Will be here" size="20">
+            <h3><output type="text" name="meaning" size="55"></h3>
+            <input class="decoration-one px-3 py-2" type="reset" value="Reset" />
+            <br />
+        </form>
+    </div>
+    <script>
+        function calculateBmi() {
+            var weight = document.techBMI.weight.value
+            var height = document.techBMI.height.value / 100
+            if (weight > 0 && height > 0) {
+                var finalBmi = weight / (height * height)
+                document.techBMI.bmi.value = finalBmi.toFixed(3);
+                if (finalBmi < 18.5) {
+                    document.techBMI.meaning.value = "You are too thin at the moment. Let us help you!"
+                }
+                if (finalBmi > 18.5 && finalBmi < 25) {
+                    document.techBMI.meaning.value = "You are healthy, congrats! A great starting point."
+                }
+                if (finalBmi > 25 && finalBmi < 30) {
+                    document.techBMI.meaning.value = "You are overweight. We can help you get down to healthy levels!"
+                }
+                if (finalBmi > 30) {
+                    document.techBMI.meaning.value = "Your BMI indicates you are obese. We recommend seeing a doctor. We'd love to help you!"
+                }
+            }
+            else {
+                alert("Data you've entered might be incorrect. Please check and try again.")
+            }
+
+        }
+
+    </script>
+</body>
+</html>
